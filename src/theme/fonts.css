@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'ELIANTO';
+    src: url('../assets/fonts/Elianto/Elianto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Anurati';
+    src: url('../assets/fonts/Anurati-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'anfrip';
+    src: url('../assets/fonts/ANFRIP-ITALIC.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
