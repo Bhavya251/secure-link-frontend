@@ -1,93 +1,104 @@
-// src/pages/Login.jsx
 import React from 'react';
 import {
   Container,
   Box,
-  TextField,
-  Typography,
-  Button,
   Avatar,
-  Paper,
-  useTheme,
-  useMediaQuery,
-  Link as MuiLink,
-  Grid
+  Typography,
+  TextField,
+  Button,
+  Grid,
+  Link,
+  useTheme
 } from '@mui/material';
 import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
-import { Link } from 'react-router-dom';
 
 export default function Login() {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const email = data.get('email');
-    const password = data.get('password');
-    console.log('Login with:', { email, password });
-    // TODO: Add backend API call here
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="90vh"
-      sx={{
-        px: isSmallScreen ? 2 : 10, // Responsive horizontal padding
-      }}
-    >
-      <Paper
-        elevation={6}
+    <Container component="main" maxWidth="xs">
+      <Box
         sx={{
-          p: 4,
-          width: '100%',
-          maxWidth: 400,
-          borderRadius: 3,
+          marginTop: 8,
+          padding: 3,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          backgroundColor: theme.palette.background.paper,
+          borderRadius: 2,
+          boxShadow: 3,
         }}
       >
         <Box display="flex" justifyContent="center">
-            <Avatar sx={{ m: 1, bgcolor: theme.palette.secondary.main }}>
-                <LockTwoToneIcon />
-            </Avatar>
+          <Avatar sx={{ m: 1, bgcolor: theme.palette.secondary.main }}>
+            <LockTwoToneIcon />
+          </Avatar>
         </Box>
-
-        <Typography variant="h5" fontWeight="bold" gutterBottom>
+        <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', mb: 2 }}>
           Welcome Back!
         </Typography>
-        <Typography variant="body2" color="text.secondary" mb={3}>
+        <Typography variant="body2" color="text.secondary" mb={2}>
           Please log in to continue
         </Typography>
 
-        <form>
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <TextField
-            fullWidth
-            label="Email"
-            type="email"
             margin="normal"
-            variant="outlined"
             required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            type="email"
+            autoFocus
           />
           <TextField
+            margin="normal"
+            required
             fullWidth
+            name="password"
             label="Password"
             type="password"
-            margin="normal"
-            variant="outlined"
-            required
+            id="password"
+            autoComplete="current-password"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 2 }}
+            color="primary"
+            sx={{ mt: 3, mb: 2 }}
           >
             Login
           </Button>
-        </form>
-      </Paper>
-    </Box>
+
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link href="/forgotPassword" variant="body2">
+                Forgot Password?
+              </Link>
+            </Grid>
+          </Grid>
+
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link href="/signup" variant="body2">
+                Don't have an account? Signup here
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </Container>
   );
 }

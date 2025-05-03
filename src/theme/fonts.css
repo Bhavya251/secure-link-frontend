@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'ELIANTO';
-    src: url('../assets/fonts/Elianto/Elianto-Regular.ttf') format('truetype');
+    src: url('../assets/fonts/Elianto-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -13,8 +13,15 @@
 }
 
 @font-face {
-    font-family: 'anfrip';
-    src: url('../assets/fonts/ANFRIP-ITALIC.ttf') format('truetype');
+    font-family: 'Lombok';
+    src: url('../assets/fonts/Lombok-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Blanka';
+    src: url('../assets/fonts/Blanka.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

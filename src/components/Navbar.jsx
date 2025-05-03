@@ -69,7 +69,7 @@ export default function Navbar() {
             textDecoration: 'none',
             color: 'inherit',
             fontWeight: 'bold',
-            fontFamily: 'anfrip',
+            fontFamily: 'Blanka',
           }}
         >
           SECURELINK
